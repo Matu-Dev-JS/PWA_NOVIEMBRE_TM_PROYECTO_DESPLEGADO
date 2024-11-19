@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { extractFormData } from '../../utils/extractFormData'
 import useForm from '../../Hooks/useForm'
 import { POST, getUnnauthenticatedHeaders } from '../../fetching/http.fetching'
+import ENVIROMENT from '../../enviroment'
 
 
 const Register = () => {
@@ -20,7 +21,7 @@ const Register = () => {
         const form_HTML = event.target
 
         const body = await POST(
-            'http://localhost:3000/api/auth/register',
+            `${ENVIROMENT.URL_BACKEND}/api/auth/register`,
             {
                 headers: getUnnauthenticatedHeaders(),
                 body: JSON.stringify(form_values_object)
